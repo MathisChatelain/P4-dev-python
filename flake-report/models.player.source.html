@@ -17,96 +17,99 @@
 
          <div id="doc">
             <div id="l1"
-               class="code sev- "><tt><i>1</i> <span class="kn">from</span> <span class="nn">tinydb</span> <span class="kn">import</span> <span class="n">TinyDB</span><span class="p">,</span> <span class="n">Query</span></tt>
+               class="code sev- "><tt><i>1</i> <span class="kn">import</span> <span class="nn">uuid</span></tt>
             </div>
             <div id="l2"
-               class="code sev- "><tt><i>2</i> <span class="kn">import</span> <span class="nn">uuid</span></tt>
+               class="code sev- "><tt><i>2</i> &nbsp;</tt>
             </div>
             <div id="l3"
-               class="code sev- "><tt><i>3</i> &nbsp;</tt>
+               class="code sev- "><tt><i>3</i> <span class="kn">from</span> <span class="nn">tinydb</span> <span class="kn">import</span> <span class="n">Query</span><span class="p">,</span> <span class="n">TinyDB</span></tt>
             </div>
             <div id="l4"
-               class="code sev- "><tt><i>4</i> <span class="n">db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="s2">&quot;./db.json&quot;</span><span class="p">)</span></tt>
+               class="code sev- "><tt><i>4</i> &nbsp;</tt>
             </div>
             <div id="l5"
-               class="code sev- "><tt><i>5</i> <span class="n">player_table</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s2">&quot;player_table&quot;</span><span class="p">)</span></tt>
+               class="code sev- "><tt><i>5</i> <span class="n">db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="s2">&quot;./db.json&quot;</span><span class="p">)</span></tt>
             </div>
             <div id="l6"
-               class="code sev- "><tt><i>6</i> &nbsp;</tt>
+               class="code sev- "><tt><i>6</i> <span class="n">player_table</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s2">&quot;player_table&quot;</span><span class="p">)</span></tt>
             </div>
             <div id="l7"
                class="code sev- "><tt><i>7</i> &nbsp;</tt>
             </div>
             <div id="l8"
-               class="code sev- "><tt><i>8</i> <span class="k">class</span> <span class="nc">Player</span><span class="p">:</span></tt>
+               class="code sev- "><tt><i>8</i> &nbsp;</tt>
             </div>
             <div id="l9"
-               class="code sev- "><tt><i>9</i>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">lastname</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">,</span> <span class="n">INE</span><span class="p">):</span></tt>
+               class="code sev- "><tt><i>9</i> <span class="k">class</span> <span class="nc">Player</span><span class="p">:</span></tt>
             </div>
             <div id="l10"
-               class="code sev- "><tt><i>10</i>         <span class="bp">self</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span></tt>
+               class="code sev- "><tt><i>10</i>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">lastname</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">,</span> <span class="n">INE</span><span class="p">):</span></tt>
             </div>
             <div id="l11"
-               class="code sev- "><tt><i>11</i>         <span class="bp">self</span><span class="o">.</span><span class="n">firstname</span> <span class="o">=</span> <span class="n">firstname</span></tt>
+               class="code sev- "><tt><i>11</i>         <span class="bp">self</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span></tt>
             </div>
             <div id="l12"
-               class="code sev- "><tt><i>12</i>         <span class="bp">self</span><span class="o">.</span><span class="n">lastname</span> <span class="o">=</span> <span class="n">lastname</span></tt>
+               class="code sev- "><tt><i>12</i>         <span class="bp">self</span><span class="o">.</span><span class="n">firstname</span> <span class="o">=</span> <span class="n">firstname</span></tt>
             </div>
             <div id="l13"
-               class="code sev- "><tt><i>13</i>         <span class="bp">self</span><span class="o">.</span><span class="n">birthdate</span> <span class="o">=</span> <span class="n">birthdate</span></tt>
+               class="code sev- "><tt><i>13</i>         <span class="bp">self</span><span class="o">.</span><span class="n">lastname</span> <span class="o">=</span> <span class="n">lastname</span></tt>
             </div>
             <div id="l14"
-               class="code sev- "><tt><i>14</i>         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">firstname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">lastname</span><span class="si">}</span><span class="s2">&quot;</span></tt>
+               class="code sev- "><tt><i>14</i>         <span class="bp">self</span><span class="o">.</span><span class="n">birthdate</span> <span class="o">=</span> <span class="n">birthdate</span></tt>
             </div>
             <div id="l15"
-               class="code sev- "><tt><i>15</i>         <span class="bp">self</span><span class="o">.</span><span class="n">INE</span> <span class="o">=</span> <span class="n">INE</span></tt>
+               class="code sev- "><tt><i>15</i>         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">firstname</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">lastname</span><span class="si">}</span><span class="s2">&quot;</span></tt>
             </div>
             <div id="l16"
-               class="code sev- "><tt><i>16</i>         <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">0</span></tt>
+               class="code sev- "><tt><i>16</i>         <span class="bp">self</span><span class="o">.</span><span class="n">INE</span> <span class="o">=</span> <span class="n">INE</span></tt>
             </div>
             <div id="l17"
-               class="code sev- "><tt><i>17</i>         <span class="bp">self</span><span class="o">.</span><span class="n">save_in_db</span><span class="p">()</span></tt>
+               class="code sev- "><tt><i>17</i>         <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">0</span></tt>
             </div>
             <div id="l18"
-               class="code sev- "><tt><i>18</i> &nbsp;</tt>
+               class="code sev- "><tt><i>18</i>         <span class="bp">self</span><span class="o">.</span><span class="n">save_in_db</span><span class="p">()</span></tt>
             </div>
             <div id="l19"
-               class="code sev- "><tt><i>19</i>     <span class="k">def</span> <span class="nf">serialized</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
+               class="code sev- "><tt><i>19</i> &nbsp;</tt>
             </div>
             <div id="l20"
-               class="code sev- "><tt><i>20</i>         <span class="c1"># we dont want to serialize the score</span></tt>
+               class="code sev- "><tt><i>20</i>     <span class="k">def</span> <span class="nf">serialized</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
             </div>
             <div id="l21"
-               class="code sev- "><tt><i>21</i>         <span class="k">return</span> <span class="p">{</span></tt>
+               class="code sev- "><tt><i>21</i>         <span class="c1"># we dont want to serialize the score</span></tt>
             </div>
             <div id="l22"
-               class="code sev- "><tt><i>22</i>             <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">),</span></tt>
+               class="code sev- "><tt><i>22</i>         <span class="k">return</span> <span class="p">{</span></tt>
             </div>
             <div id="l23"
-               class="code sev- "><tt><i>23</i>             <span class="s2">&quot;firstname&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstname</span><span class="p">,</span></tt>
+               class="code sev- "><tt><i>23</i>             <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">),</span></tt>
             </div>
             <div id="l24"
-               class="code sev- "><tt><i>24</i>             <span class="s2">&quot;lastname&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastname</span><span class="p">,</span></tt>
+               class="code sev- "><tt><i>24</i>             <span class="s2">&quot;firstname&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstname</span><span class="p">,</span></tt>
             </div>
             <div id="l25"
-               class="code sev- "><tt><i>25</i>             <span class="s2">&quot;birthdate&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate</span><span class="p">,</span></tt>
+               class="code sev- "><tt><i>25</i>             <span class="s2">&quot;lastname&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastname</span><span class="p">,</span></tt>
             </div>
             <div id="l26"
-               class="code sev- "><tt><i>26</i>             <span class="s2">&quot;INE&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">INE</span><span class="p">,</span></tt>
+               class="code sev- "><tt><i>26</i>             <span class="s2">&quot;birthdate&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">birthdate</span><span class="p">,</span></tt>
             </div>
             <div id="l27"
-               class="code sev- "><tt><i>27</i>         <span class="p">}</span></tt>
+               class="code sev- "><tt><i>27</i>             <span class="s2">&quot;INE&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">INE</span><span class="p">,</span></tt>
             </div>
             <div id="l28"
-               class="code sev- "><tt><i>28</i> &nbsp;</tt>
+               class="code sev- "><tt><i>28</i>         <span class="p">}</span></tt>
             </div>
             <div id="l29"
-               class="code sev- "><tt><i>29</i>     <span class="k">def</span> <span class="nf">save_in_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
+               class="code sev- "><tt><i>29</i> &nbsp;</tt>
             </div>
             <div id="l30"
-               class="code sev- "><tt><i>30</i>         <span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">Query</span><span class="p">()</span><span class="o">.</span><span class="n">uuid</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">)):</span></tt>
+               class="code sev- "><tt><i>30</i>     <span class="k">def</span> <span class="nf">save_in_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
             </div>
             <div id="l31"
+               class="code sev- "><tt><i>31</i>         <span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">Query</span><span class="p">()</span><span class="o">.</span><span class="n">uuid</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">)):</span></tt>
+            </div>
+            <div id="l32"
                class="code sev-2  le">
                <ul class="violations">
                
@@ -116,13 +119,13 @@
                      </span>
                      Line too long (82 > 79 characters)</li>
                
-               </ul><tt><i>31</i>             <span class="n">player_table</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">serialized</span><span class="p">(),</span> <span class="n">Query</span><span class="p">()</span><span class="o">.</span><span class="n">uuid</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">))</span></tt>
-            </div>
-            <div id="l32"
-               class="code sev- "><tt><i>32</i>         <span class="k">else</span><span class="p">:</span></tt>
+               </ul><tt><i>32</i>             <span class="n">player_table</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">serialized</span><span class="p">(),</span> <span class="n">Query</span><span class="p">()</span><span class="o">.</span><span class="n">uuid</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">))</span></tt>
             </div>
             <div id="l33"
-               class="code sev- "><tt><i>33</i>             <span class="n">player_table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">serialized</span><span class="p">())</span></tt>
+               class="code sev- "><tt><i>33</i>         <span class="k">else</span><span class="p">:</span></tt>
+            </div>
+            <div id="l34"
+               class="code sev- "><tt><i>34</i>             <span class="n">player_table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">serialized</span><span class="p">())</span></tt>
             </div>
             
          </div>
