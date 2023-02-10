@@ -1,8 +1,8 @@
-from models.tournament import Tournament
-from models.player import Player
-import views.main as main_view
-import controllers.main as main_controller
 import controllers.crud as crud_controller
+import controllers.main as main_controller
+import views.main as main_view
+from models.player import Player
+from models.tournament import Tournament
 
 main_view.display_welcome_message()
 

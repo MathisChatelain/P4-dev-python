@@ -1,15 +1,15 @@
-from models.tournament import Tournament
-from models.player import Player
-import views.main as main_view
 import random
 
+import views.main as main_view
 from controllers.crud import (
     create_player,
     create_tournament,
-    retrieve_tournament,
     recreate_tournament_from_data,
+    retrieve_tournament,
 )
 from controllers.inputs import input_number_of_players, input_uuid_or_int
+from models.player import Player
+from models.tournament import Tournament
 
 
 def update_time_mode(tournament: Tournament, time_mode):

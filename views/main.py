@@ -1,7 +1,9 @@
-from models.tournament import Tournament
-from models.player import Player
-from tinydb import TinyDB, Query
 import uuid
+
+from tinydb import Query, TinyDB
+
+from models.player import Player
+from models.tournament import Tournament
 
 db = TinyDB("./db.json")
 tournament_table = db.table("tournament_table")

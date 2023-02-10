@@ -1,9 +1,10 @@
+import uuid
+
+from tinydb import Query, TinyDB, where
+
 from controllers.inputs import input_int, input_time_mode
 from models.player import Player
 from models.tournament import Tournament
-
-from tinydb import TinyDB, Query, where
-import uuid
 
 db = TinyDB("./db.json")
 tournament_table = db.table("tournament_table")

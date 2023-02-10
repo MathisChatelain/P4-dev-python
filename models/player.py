@@ -1,5 +1,6 @@
-from tinydb import TinyDB, Query
 import uuid
+
+from tinydb import Query, TinyDB
 
 db = TinyDB("./db.json")
 player_table = db.table("player_table")
