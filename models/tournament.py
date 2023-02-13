@@ -26,7 +26,6 @@ class Tournament:
         self.players_instances = []
         self.description = description
         self.time_mode = time_mode
-        self.save_in_db()
 
     def serialized(self):
         return {
@@ -41,8 +40,9 @@ class Tournament:
         }
 
     def save_in_db(self):
-        if db.search(Query().uuid == str(self.uuid)):
-            print("test")
-            tournament_table.update(self.serialized(), Query().uuid == str(self.uuid))
-        else:
-            tournament_table.insert(self.serialized())
+        ids = []
+        for tournament in tournament_table.all():
+            if tournament["uuid"] == str(self.uuid):
+                ids.append(tournament.doc_id)
+        tournament_table.remove(doc_ids=ids)
+        tournament_table.insert(self.serialized())

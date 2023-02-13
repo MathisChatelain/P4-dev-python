@@ -61,7 +61,9 @@ def play_tournament(tournament: Tournament = None):
     if tournament is None:
         print("Aucun tournoi en cours ou chargé, création d'un nouveau tournoi:")
         tournament = create_tournament()
-    add_players(tournament)
+    if len(tournament.players) == 0:
+        print("Aucun joueur n'est inscrit au tournoi, veuillez en ajouter:")
+        add_players(tournament)
     for round in range(1, tournament.rounds + 1):
         main_view.display_turn(tournament, round)
         play_turn(tournament, round)

@@ -42,3 +42,9 @@ Vous devriez maintenant être en mesure de lancer un environnement virtuel Pytho
 
 ## Utilitaires
 Vous pouvez utilisez le fichier lintall.sh pour lancer tout les outils de nettoyage du code en simultanés.
+
+Pour génerer un rapport flake 8 vous pouvez utiliser la commande 
+
+"""
+generate_flake_planner.py
+"""

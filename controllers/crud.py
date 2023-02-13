@@ -50,9 +50,38 @@ def recreate_tournament_from_data(data):
         )
         # Reuse the uuid of the tournament
         tournament.uuid = data["uuid"]
+        for player_uuid in tournament.players:
+            player_data = retrieve_player(player_uuid)
+            if player_data:
+                player = recreate_player_from_data(player_data)
+                tournament.players_instances.append(player)
+            else:
+                print("Un des joueurs n'a pas été trouvé dans la base de données")
+
+        if len(tournament.players_instances) == 0:
+            print("Aucun joueur du tournoi n'a été trouvé dans la base de données")
+        elif len(tournament.players_instances) % 2 != 0:
+            print(
+                "Le nombre de joueurs du tournoi est impair, veuillez ajouter un nombre impair de joueur"
+            )
         return tournament
     except ValueError:
         print("Une erreur est survenue durant le chargement du tournoi")
+
+
+def recreate_player_from_data(data):
+    try:
+        player = Player(
+            firstname=data["firstname"],
+            lastname=data["lastname"],
+            birthdate=data["birthdate"],
+            INE=data["INE"],
+        )
+        # Reuse the uuid of the tournament
+        player.uuid = data["uuid"]
+        return player
+    except ValueError:
+        print("Une erreur est survenue durant le chargement du joueur")
 
 
 def check_number_of_tournament():
@@ -63,15 +92,39 @@ def check_number_of_tournament():
         return len(tournament_table.all())
 
 
+def check_number_of_player():
+    if len(players_table.all()) == 0:
+        print("Aucun joueur dans la base de données")
+        return None
+    else:
+        return len(players_table.all())
+
+
 def retrieve_tournament(uuid_or_id):
     if check_number_of_tournament() is None:
         return None
-    tournament = Query()
-    query = tournament_table.search(tournament["uuid"] == str(uuid_or_id))
+    query = [
+        player for player in tournament_table.all() if player["uuid"] == str(uuid_or_id)
+    ]
     if len(query) == 0:
         return tournament_table.all()[int(uuid_or_id) - 1]
     if len(query) == 1:
         return query[0]
     else:
         print("Aucun tournoi trouvé avec cet identifiant")
+        return None
+
+
+def retrieve_player(uuid_or_id):
+    if check_number_of_player() is None:
+        return None
+    query = [
+        player for player in players_table.all() if player["uuid"] == str(uuid_or_id)
+    ]
+    if len(query) == 0:
+        return players_table.all()[int(uuid_or_id) - 1]
+    if len(query) == 1:
+        return query[0]
+    else:
+        print("Aucun joueur trouvé avec cet identifiant")
         return None

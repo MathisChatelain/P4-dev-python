@@ -15,7 +15,6 @@ class Player:
         self.name = f"{firstname} {lastname}"
         self.INE = INE
         self.score = 0
-        self.save_in_db()
 
     def serialized(self):
         # we dont want to serialize the score
@@ -28,7 +27,9 @@ class Player:
         }
 
     def save_in_db(self):
-        if db.search(Query().uuid == str(self.uuid)):
-            player_table.update(self.serialized(), Query().uuid == str(self.uuid))
-        else:
-            player_table.insert(self.serialized())
+        ids = []
+        for player in player_table.all():
+            if player["uuid"] == str(self.uuid):
+                ids.append(player.doc_id)
+        player_table.remove(doc_ids=ids)
+        player_table.insert(self.serialized())
