@@ -1,8 +1,6 @@
-import uuid
+from tinydb import Query, TinyDB
 
-from tinydb import Query, TinyDB, where
-
-from controllers.inputs import input_int, input_time_mode
+from controllers.inputs import input_int, input_time_mode, input_date
 from models.player import Player
 from models.tournament import Tournament
 
@@ -11,13 +9,10 @@ tournament_table = db.table("tournament_table")
 players_table = db.table("player_table")
 
 
-#################################### CREATE ####################################
-
-
 def create_tournament():
     name = input("Nom du tournoi : ")
     location = input("Lieu du tournoi : ")
-    date = input("Date du tournoi : ")
+    date = input_date("Date du tournoi : ")
 
     time_mode = input_time_mode("Mode de jeu (bullet, blitz, fast): ")
 
@@ -34,7 +29,7 @@ def create_tournament():
 def create_player():
     first_name = input("Prénom du joueur : ")
     last_name = input("Nom du joueur : ")
-    date_of_birth = input("Date de naissance du joueur : ")
+    date_of_birth = input_date("Date de naissance du joueur : ")
     INE = input("Identifiant nation d'échecs du joueur : ")
     player = Player(
         firstname=first_name, lastname=last_name, birthdate=date_of_birth, INE=INE
@@ -56,11 +51,8 @@ def recreate_tournament_from_data(data):
         # Reuse the uuid of the tournament
         tournament.uuid = data["uuid"]
         return tournament
-    except:
-        print(f"Une erreur est survenue durant le chargement du tournoi")
-
-
-#################################### RETRIEVE ####################################
+    except ValueError:
+        print("Une erreur est survenue durant le chargement du tournoi")
 
 
 def check_number_of_tournament():

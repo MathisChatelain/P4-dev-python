@@ -1,8 +1,6 @@
 import controllers.crud as crud_controller
 import controllers.main as main_controller
 import views.main as main_view
-from models.player import Player
-from models.tournament import Tournament
 
 main_view.display_welcome_message()
 

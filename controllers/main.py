@@ -8,7 +8,6 @@ from controllers.crud import (
     retrieve_tournament,
 )
 from controllers.inputs import input_number_of_players, input_uuid_or_int
-from models.player import Player
 from models.tournament import Tournament
 
 
@@ -20,7 +19,10 @@ def update_time_mode(tournament: Tournament, time_mode):
         return 0
     else:
         print(
-            f"Choix de mode de jeu invalide:\n Choix possibles : {str(choices)[1:-1]}, votre précedente saisie ${time_mode}"
+            f"""
+            Choix de mode de jeu invalide:\n Choix possibles :
+            {str(choices)[1:-1]}, votre précedente saisie ${time_mode}
+            """
         )
         return 1
 
@@ -28,7 +30,7 @@ def update_time_mode(tournament: Tournament, time_mode):
 def add_players(tournament: Tournament):
     index = 1
     number_of_players_to_add = input_number_of_players(
-        f"Combien de joueurs voulez-vous ajouter ?"
+        "Combien de joueurs voulez-vous ajouter ?"
     )
     while number_of_players_to_add > 0:
         print(f"Joueur n°{index}:")
@@ -57,7 +59,7 @@ def play_turn(tournament: Tournament, round):
 
 def play_tournament(tournament: Tournament = None):
     if tournament is None:
-        print(f"Aucun tournoi en cours ou chargé, création d'un nouveau tournoi:")
+        print("Aucun tournoi en cours ou chargé, création d'un nouveau tournoi:")
         tournament = create_tournament()
     add_players(tournament)
     for round in range(1, tournament.rounds + 1):
@@ -78,12 +80,12 @@ def play_match(player_one, player_two):
     results = [0, 0]
     results_inputted = False
 
-    while results_inputted == False:
+    while results_inputted is False:
         results_choice = input(
             f"""
-                Veuillez entrer les résultats: 
-                victoire de {player_one.name} -> 0  
-                victoire de {player_two.name} -> 1 
+                Veuillez entrer les résultats:
+                victoire de {player_one.name} -> 0
+                victoire de {player_two.name} -> 1
                 match nul -> 2\n
             """
         )
@@ -97,7 +99,10 @@ def play_match(player_one, player_two):
                 results = [0.5, 0.5]
             case _:
                 print(
-                    f"Veuillez entrer un nombre entre parmi les choix proposés ! votre entrée : {results_choice} n'est pas valide"
+                    f"""
+                    Veuillez entrer un nombre entre parmi les choix proposés !
+                    Votre entrée : {results_choice} n'est pas valide.
+                    """
                 )
                 results_inputted = False
 

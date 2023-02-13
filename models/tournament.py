@@ -1,9 +1,6 @@
 import uuid
-from math import pow
 
 from tinydb import Query, TinyDB
-
-from models.player import Player
 
 db = TinyDB("./db.json")
 tournament_table = db.table("tournament_table")

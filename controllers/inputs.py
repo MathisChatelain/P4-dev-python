@@ -1,4 +1,5 @@
 from uuid import UUID
+from datetime import datetime
 
 
 def input_int(message):
@@ -16,13 +17,22 @@ def input_time_mode(message):
             return choices[input(message)]
         except KeyError:
             print(
-                f"Choix de mode de jeu invalide:\n Choix possibles : bullet ( par défaut ), blitz, fast"
+                "Choix de mode de jeu invalide:\n Choix possibles : bullet ( par défaut ), blitz, fast"
             )
+
+
+def input_date(message):
+    while True:
+        date_str = input(message)
+        try:
+            return str(datetime.strptime(date_str, "%d-%m-%Y").date())
+        except ValueError:
+            print("Veuillez entrer une date valide, format: AAAA-MM-JJ*")
 
 
 def input_uuid_or_int(message=None):
     if message is None:
-        message = f"Veuillez entrer un entier ou un UUID valide :"
+        message = "Veuillez entrer un entier ou un UUID valide :"
     while True:
         value = input(message)
         try:

@@ -1,9 +1,4 @@
-import uuid
-
-from tinydb import Query, TinyDB
-
-from models.player import Player
-from models.tournament import Tournament
+from tinydb import TinyDB
 
 db = TinyDB("./db.json")
 tournament_table = db.table("tournament_table")
@@ -34,7 +29,6 @@ def display_tournament_list():
         UUID: { tournament["uuid"]  or "non renseigné" },
         Nom: {tournament["name"] or "non renseigné" },
         Date: { tournament["date"]  or "non renseigné" },
-        
         """
         )
 
@@ -63,6 +57,9 @@ def display_tournament_results(tournament):
 
 
 def display_aplhabetical_list_of_tournament_players(tournament):
+    """
+    Display the list of players in alphabetical order
+    """
     print(
         f"""
     Liste alphabétique des joueurs du tournoi {tournament.name} :
@@ -77,6 +74,9 @@ def display_aplhabetical_list_of_tournament_players(tournament):
 
 
 def display_tournament_name_and_date(tournament):
+    """
+    Display the name and date of the tournament
+    """
     print(
         f"""
     Tournoi {tournament.name} du {tournament.date}
