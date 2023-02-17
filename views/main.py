@@ -47,6 +47,7 @@ def display_player_list():
         INE: { player["INE"]  or "non renseigné" },
         """
         )
+        index += 1
 
 
 def display_turn(tournament, round):
