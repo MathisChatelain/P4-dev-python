@@ -22,13 +22,29 @@ def display_match(player_one, player_two):
 
 
 def display_tournament_list():
+    index = 1
     for tournament in tournament_table:
         print(
             f"""
-        Numéro: {tournament.doc_id},
+        Numéro: {index},
         UUID: { tournament["uuid"]  or "non renseigné" },
         Nom: {tournament["name"] or "non renseigné" },
         Date: { tournament["date"]  or "non renseigné" },
+        """
+        )
+        index += 1
+
+
+def display_player_list():
+    index = 1
+    for player in players_table:
+        print(
+            f"""
+        Numéro: {index},
+        UUID: { player["uuid"]  or "non renseigné" },
+        Nom: {(player["firstname"] + " " + player["lastname"]) or "non renseigné" },
+        Date de naissance: { player["birthdate"]  or "non renseigné" },
+        INE: { player["INE"]  or "non renseigné" },
         """
         )
 

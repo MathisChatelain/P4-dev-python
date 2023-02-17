@@ -11,6 +11,8 @@ while execute_program:
         Que souhaitez vous faire ?
         Nouveau tournoi : 1,
         Reprendre un tournoi : 2,
+        Afficher les tournois : 3,
+        Afficher les joueurs : 4,
         Arret du programme : *autre touche*
         """
     )
@@ -22,5 +24,9 @@ while execute_program:
                 pass
             else:
                 main_controller.load_tournament()
+        case "3":
+            main_view.display_tournament_list()
+        case "4":
+            main_view.display_player_list()
         case _:
             execute_program = False

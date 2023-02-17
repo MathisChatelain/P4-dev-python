@@ -27,7 +27,7 @@ def input_date(message):
         try:
             return str(datetime.strptime(date_str, "%d-%m-%Y").date())
         except ValueError:
-            print("Veuillez entrer une date valide, format: AAAA-MM-JJ*")
+            print("Veuillez entrer une date valide, format: JJ-MM-AAAA")
 
 
 def input_uuid_or_int(message=None):
