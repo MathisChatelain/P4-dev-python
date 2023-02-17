@@ -1,7 +1,6 @@
 from tinydb import TinyDB
 
 from controllers.inputs import input_date, input_int, input_time_mode
-from controllers.main import add_players
 from models.player import Player
 from models.tournament import Tournament
 
@@ -65,7 +64,6 @@ def recreate_tournament_from_data(data):
             print(
                 "Le nombre de joueurs du tournoi est impair, l'ajout à été arrondi à l'entier pair supérieur"
             )
-            add_players(tournament, force_parity=True)
         return tournament
     except ValueError:
         print("Une erreur est survenue durant le chargement du tournoi")
