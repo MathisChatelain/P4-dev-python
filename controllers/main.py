@@ -27,11 +27,16 @@ def update_time_mode(tournament: Tournament, time_mode):
         return 1
 
 
-def add_players(tournament: Tournament):
+def add_players(tournament: Tournament, force_parity=False):
     index = 1
     number_of_players_to_add = input_number_of_players(
         "Combien de joueurs voulez-vous ajouter ?"
     )
+    if (
+        force_parity
+        and (number_of_players_to_add + len(tournament.players_instances)) % 2 == 1
+    ):
+        number_of_players_to_add += 1
     while number_of_players_to_add > 0:
         print(f"Joueur n°{index}:")
         player = create_player()
