@@ -63,6 +63,7 @@ def play_turn(tournament: Tournament, round):
     # ASKED FIX: save players score after each turn
     for player in players:
         player.save_in_db()
+    tournament.current_round += 1
     tournament.save_in_db()
 
 
