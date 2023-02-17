@@ -1,5 +1,5 @@
-from uuid import UUID
 from datetime import datetime
+from uuid import UUID
 
 
 def input_int(message):

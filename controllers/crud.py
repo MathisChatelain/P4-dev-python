@@ -1,6 +1,6 @@
 from tinydb import TinyDB
 
-from controllers.inputs import input_int, input_time_mode, input_date
+from controllers.inputs import input_date, input_int, input_time_mode
 from models.player import Player
 from models.tournament import Tournament
 
