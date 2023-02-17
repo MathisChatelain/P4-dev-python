@@ -13,6 +13,8 @@ while execute_program:
         Reprendre un tournoi : 2,
         Afficher les tournois : 3,
         Afficher les joueurs : 4,
+        Gérer les tournois: 5,
+        Gérer les joueurs: 6,
         Arret du programme : *autre touche*
         """
     )
@@ -28,5 +30,9 @@ while execute_program:
             main_view.display_tournament_list()
         case "4":
             main_view.display_player_list()
+        case "5":
+            main_controller.tournaments_reporting()
+        case "6":
+            main_controller.players_reporting()
         case _:
             execute_program = False

@@ -13,6 +13,7 @@ class Tournament:
         location,
         date,
         rounds=4,
+        current_round=0,
         description="",
         time_mode="bullet",
         players=[],
@@ -21,6 +22,7 @@ class Tournament:
         self.name = name
         self.location = location
         self.date = date
+        self.current_round = current_round
         self.rounds = rounds
         self.players = players
         self.players_instances = []
@@ -34,6 +36,7 @@ class Tournament:
             "location": self.location,
             "date": self.date,
             "rounds": self.rounds,
+            "curent_round": self.current_round,
             "players": self.players,
             "description": self.description,
             "time_mode": self.time_mode,

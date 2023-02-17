@@ -72,6 +72,17 @@ def display_tournament_results(tournament):
     )
 
 
+def display_player_data(player):
+    print(
+        f"""
+    Nom : {player.lastname}
+    Prénom : {player.firstname}
+    Date de naissance : {player.birthdate}
+    INE : {player.INE}
+    """
+    )
+
+
 def display_aplhabetical_list_of_tournament_players(tournament):
     """
     Display the list of players in alphabetical order

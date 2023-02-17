@@ -17,13 +17,13 @@ class Player:
         self.score = 0
 
     def serialized(self):
-        # we dont want to serialize the score
         return {
             "uuid": str(self.uuid),
             "firstname": self.firstname,
             "lastname": self.lastname,
             "birthdate": self.birthdate,
             "INE": self.INE,
+            "score": self.score,
         }
 
     def save_in_db(self):
