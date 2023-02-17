@@ -1,4 +1,4 @@
-from tinydb import Query, TinyDB
+from tinydb import TinyDB
 
 from controllers.inputs import input_int, input_time_mode, input_date
 from models.player import Player

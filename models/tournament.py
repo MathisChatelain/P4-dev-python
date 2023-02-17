@@ -1,6 +1,6 @@
 import uuid
 
-from tinydb import Query, TinyDB
+from tinydb import TinyDB
 
 db = TinyDB("./db.json")
 tournament_table = db.table("tournament_table")
