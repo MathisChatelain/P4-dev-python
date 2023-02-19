@@ -7,14 +7,14 @@ player_table = db.table("player_table")
 
 
 class Player:
-    def __init__(self, firstname, lastname, birthdate, INE):
+    def __init__(self, firstname, lastname, birthdate, INE, score):
         self.uuid = uuid.uuid4()
         self.firstname = firstname
         self.lastname = lastname
         self.birthdate = birthdate
         self.name = f"{firstname} {lastname}"
         self.INE = INE
-        self.score = 0
+        self.score = score
 
     def serialized(self):
         return {

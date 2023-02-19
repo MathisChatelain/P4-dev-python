@@ -36,7 +36,7 @@ class Tournament:
             "location": self.location,
             "date": self.date,
             "rounds": self.rounds,
-            "curent_round": self.current_round,
+            "current_round": self.current_round,
             "players": self.players,
             "description": self.description,
             "time_mode": self.time_mode,

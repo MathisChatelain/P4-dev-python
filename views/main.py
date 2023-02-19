@@ -5,6 +5,22 @@ tournament_table = db.table("tournament_table")
 players_table = db.table("player_table")
 
 
+def check_number_of_tournament():
+    if len(tournament_table.all()) == 0:
+        print("Aucun tournoi dans la base de données")
+        return None
+    else:
+        return len(tournament_table.all())
+
+
+def check_number_of_player():
+    if len(players_table.all()) == 0:
+        print("Aucun joueur dans la base de données")
+        return None
+    else:
+        return len(players_table.all())
+
+
 def display_welcome_message():
     print(
         """
@@ -22,7 +38,12 @@ def display_match(player_one, player_two):
 
 
 def display_tournament_list():
+    if check_number_of_tournament() is None:
+        return None
     index = 1
+    print(
+        "################################### Liste des tournois #############################################"
+    )
     for tournament in tournament_table:
         print(
             f"""
@@ -33,10 +54,18 @@ def display_tournament_list():
         """
         )
         index += 1
+    print(
+        "------------------------------------ Fin de la liste ----------------------------------------------"
+    )
 
 
 def display_player_list():
+    if check_number_of_player() is None:
+        return None
     index = 1
+    print(
+        "################################### Liste des joueurs #############################################"
+    )
     for player in players_table:
         print(
             f"""
@@ -48,6 +77,9 @@ def display_player_list():
         """
         )
         index += 1
+    print(
+        "------------------------------------ Fin de la liste ----------------------------------------------"
+    )
 
 
 def display_turn(tournament, round):
@@ -57,18 +89,18 @@ def display_turn(tournament, round):
     Tableau des scores:
     """
     )
-    for player in tournament.players_instances:
-        print(
-            f"""
-        {player.name} : {player.score} points
-        """
-        )
+    display_tournament_results(tournament)
 
 
 def display_tournament_results(tournament):
+    results = ""
+    for player in sorted(
+        tournament.players_instances, key=lambda x: x.score, reverse=True
+    ):
+        results += f"{player.name} : {player.score} points\n    "
     print(
         f"""
-    Tournoi {tournament.name} terminé !
+    {results}
     """
     )
 

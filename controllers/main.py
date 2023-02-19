@@ -8,6 +8,8 @@ from controllers.crud import (
     recreate_tournament_from_data,
     retrieve_player,
     retrieve_tournament,
+    check_number_of_player,
+    check_number_of_tournament,
 )
 from controllers.inputs import input_number_of_players, input_uuid_or_int
 from models.player import Player
@@ -106,7 +108,7 @@ def tournament_menu(tournament: Tournament):
     while execute_program:
         choice = input(
             """
-            Que souhaitez vous faire aec ce tournoi ?
+            Que souhaitez vous faire avec ce tournoi ?
             Afficher le classement : 1,
             Afficher la liste des joueurs: 2
             Relancer le tournoi à 0: 3,
@@ -152,6 +154,8 @@ def player_menu(player: Player):
 
 
 def tournaments_reporting():
+    if check_number_of_tournament() is None:
+        return None
     main_view.display_tournament_list()
     tournament_id_or_uuid = input_uuid_or_int()
     tournament_data = retrieve_tournament(tournament_id_or_uuid)
@@ -160,6 +164,8 @@ def tournaments_reporting():
 
 
 def players_reporting():
+    if check_number_of_player() is None:
+        return None
     main_view.display_player_list()
     player_id_or_uuid = input_uuid_or_int()
     player_data = retrieve_player(player_id_or_uuid)
@@ -169,8 +175,10 @@ def players_reporting():
 
 def update_player(player: Player):
     old_uuid = player.uuid
+    old_score = player.score
     updated_player = create_player()
     updated_player.uuid = old_uuid
+    updated_player.score = old_score
     updated_player.save_in_db()
     return updated_player
 

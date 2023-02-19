@@ -32,18 +32,24 @@ def create_player():
     date_of_birth = input_date("Date de naissance du joueur : ")
     INE = input("Identifiant nation d'échecs du joueur : ")
     player = Player(
-        firstname=first_name, lastname=last_name, birthdate=date_of_birth, INE=INE
+        firstname=first_name,
+        lastname=last_name,
+        birthdate=date_of_birth,
+        INE=INE,
+        score=0,
     )
     return player
 
 
 def recreate_tournament_from_data(data):
     try:
+        print(data)
         tournament = Tournament(
             name=data["name"],
             location=data["location"],
             date=data["date"],
             rounds=data["rounds"],
+            current_round=data["current_round"],
             players=data["players"],
             description=data["description"],
             time_mode=data["time_mode"],
@@ -76,6 +82,7 @@ def recreate_player_from_data(data):
             lastname=data["lastname"],
             birthdate=data["birthdate"],
             INE=data["INE"],
+            score=data["score"],
         )
         # Reuse the uuid of the tournament
         player.uuid = data["uuid"]
