@@ -29,7 +29,7 @@ bash
 
 Vous devriez maintenant voir le nom de votre environnement virtuel entouré de parenthèses à gauche de votre invite de commande, indiquant que vous travaillez dans un environnement virtuel.
 
-Installer les packages
+## Installer les packages
 Pour installer les paquets nécessaires, utilisez la commande suivante :
 
 ```
@@ -38,7 +38,12 @@ Pour installer les paquets nécessaires, utilisez la commande suivante :
 
 Cela installera tous les paquets listés dans le fichier requirements.txt dans votre environnement virtuel.
 
-Vous devriez maintenant être en mesure de lancer un environnement virtuel Python et d'installer les paquets nécessaires à partir d'un fichier requirements.txt.
+## Lancer l'application
+
+```
+    cd P4
+    chess_tournament_planner.py
+```
 
 ## Utilitaires
 Vous pouvez utilisez le fichier lintall.sh pour lancer tout les outils de nettoyage du code en simultanés.
