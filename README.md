@@ -41,7 +41,7 @@ Cela installera tous les paquets listés dans le fichier requirements.txt dans v
 ## Lancer l'application
 
 ```
-    cd P4
+    cd P4-dev-python
     chess_tournament_planner.py
 ```
 
