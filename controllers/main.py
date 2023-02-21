@@ -70,7 +70,6 @@ def play_turn(tournament: Tournament, round):
 
 
 def play_tournament(tournament: Tournament = None):
-    players: list[Player] = tournament.players_instances
     if tournament is None:
         print("Aucun tournoi en cours ou chargé, création d'un nouveau tournoi:")
         tournament = create_tournament()
@@ -78,6 +77,7 @@ def play_tournament(tournament: Tournament = None):
         print("Aucun joueur n'est inscrit au tournoi, veuillez en ajouter:")
         add_players(tournament)
     if tournament.current_round == 0:
+        players = tournament.players_instances
         for player in players:
             player.score = 0
             player.save_in_db()
@@ -115,19 +115,19 @@ def tournament_menu(tournament: Tournament):
             Continuer : *autre touche*
             """
         )
-        match choice:
-            case "1":
+        if choice:
+            if choice == "1":
                 main_view.display_tournament_results(tournament)
-            case "2":
+            if choice == "2":
                 main_view.display_aplhabetical_list_of_tournament_players(tournament)
-            case "3":
+            if choice == "3":
                 tournament.current_round = 0
                 for player in tournament.players_instances:
                     player.score = 0
                     player.save_in_db()
                 tournament.save_in_db()
                 return "restart"
-            case _:
+            else:
                 execute_program = False
 
 
@@ -143,12 +143,12 @@ def player_menu(player: Player):
             Continuer : *autre touche*
             """
         )
-        match choice:
-            case "1":
+        if choice:
+            if choice == "1":
                 main_view.display_player_data(player)
-            case "2":
+            if choice == "2":
                 player = update_player(player)
-            case _:
+            else:
                 execute_program = False
     return player
 
@@ -205,14 +205,17 @@ def play_match(player_one, player_two):
             """
         )
         results_inputted = True
-        match results_choice:
-            case "0":
+        if results_choice:
+            if results_choice == "0":
                 results = [1, 0]
-            case "1":
+                results_inputted = True
+            elif results_choice == "1":
                 results = [0, 1]
-            case "2":
+                results_inputted = True
+            elif results_choice == "2":
                 results = [0.5, 0.5]
-            case _:
+                results_inputted = True
+            else:
                 print(
                     f"""
                     Veuillez entrer un nombre entre parmi les choix proposés !

@@ -18,21 +18,21 @@ while execute_program:
         Arret du programme : *autre touche*
         """
     )
-    match choice:
-        case "1":
+    if choice:
+        if choice == "1":
             main_controller.play_tournament()
-        case "2":
+        if choice == "2":
             if crud_controller.check_number_of_tournament() is None:
                 pass
             else:
                 main_controller.load_tournament()
-        case "3":
+        if choice == "3":
             main_view.display_tournament_list()
-        case "4":
+        if choice == "4":
             main_view.display_player_list()
-        case "5":
+        if choice == "5":
             main_controller.tournaments_reporting()
-        case "6":
+        if choice == "6":
             main_controller.players_reporting()
-        case _:
+        else:
             execute_program = False
